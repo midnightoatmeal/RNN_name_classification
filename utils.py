@@ -1,6 +1,5 @@
 import io
 import os
-from tkinter import ALL
 import unicodedata
 import string
 import glob
@@ -19,3 +18,13 @@ def unicode_to_ascii(s):
         if unicodedata.category(c) != 'Mn'
         and c in ALL_LETTERS
     )
+
+def load_data():
+    # Build the category_lines dictionary, a list of names per language
+    category_lines = {}
+    all_categories = []
+
+    def find_files(path):
+        return glob.glob(path)
+    
+    
