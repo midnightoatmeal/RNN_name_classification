@@ -5,7 +5,7 @@ This project implements a simple Recurrent Neural Network (RNN) from scratch in 
 
 The implementation follows a character-level RNN approach where each character is represented as a one-hot encoded vector, and the sequence of characters is fed into the model step by step.
 
-###About This Project:
+About This Project
 This work is inspired by the official PyTorch tutorial:
 NLP From Scratch: Classifying Names with a Character-Level RNN.
 I originally followed a YouTube tutorial that was based on this PyTorch guide and then reconstructed and customized the implementation here for learning and experimentation.
