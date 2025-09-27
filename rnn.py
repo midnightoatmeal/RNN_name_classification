@@ -1,3 +1,4 @@
+from sympy import carmichael
 import torch
 import torch.nn as nn 
 import matplotlib.pyplot as plt 
@@ -37,5 +38,22 @@ input_tensor = letter_to_tensor('A')
 hidden_tensor = rnn.init_hidden()
 
 output, next_hidden = rnn(input_tensor, hidden_tensor)
-print(output.size())
-print(next_hidden.size())
+# print(output.size())
+# print(next_hidden.size())
+
+
+# whole sequence/name
+input_tensor = line_to_tensor('Albert')
+hidden_tensor = rnn.init_hidden()
+
+output, next_hidden = rnn(input_tensor[0], hidden_tensor)
+# print(output.size())
+# print(next_hidden.size())
+
+#
+def category_from_output(output):
+    category_idx = torch.argmax(output).item()
+    return all_categories[category_idx]
+print(category_from_output(output))
+
+
