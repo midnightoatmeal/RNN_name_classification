@@ -64,4 +64,22 @@ def letter_to_tensor(letter):
 
 # Turn a line into a <line_length x 1 n_letters>,
 # or an array of one-hot letter vectors
+def line_to_tensor(line):
+    tensor = torch.zeros(len(line), 1, N_LETTERS)
+    for i, letter in enumerate(line):
+        tensor[i][0][letter_to_index(letter)] = 1
+    return tensor
 
+def random_training_example(category_lines, all_categories):
+
+    def random_choice(a):
+        random_idx = random.randint(0, len(a) - 1)
+        return a[random_idx]
+    
+    category = random_choice(all_categories)
+    line = random_choice(category_lines[category])
+    category_tensor = torch.tensor([all_categories.index(category)], dtype=torch.long)
+    line_tensor = line_to_tensor(line)
+    return category, line, category_tensor, line_tensor
+
+    
